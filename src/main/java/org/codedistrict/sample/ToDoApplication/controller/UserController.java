@@ -43,4 +43,8 @@ public class UserController {
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
     }
+//    @PostMapping("/register")
+//    public User registerUser(@RequestBody User user) {
+//        return userService.registerUser(user);
+//    }
 }

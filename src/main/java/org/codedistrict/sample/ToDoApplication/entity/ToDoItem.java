@@ -13,23 +13,27 @@ public class ToDoItem {
     private String title;
 
     private String description;
-    private boolean completed;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "status_id", nullable = false)
+    private Status status;
+
     public ToDoItem() {
     }
 
-    public ToDoItem(Long id, String title, String description, boolean completed, User user) {
+    public ToDoItem(Long id, String title, String description, User user, Status status) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.completed = completed;
         this.user = user;
+        this.status = status;
     }
 
+    // getters and setters for all fields, including status
     public Long getId() {
         return id;
     }
@@ -54,19 +58,19 @@ public class ToDoItem {
         this.description = description;
     }
 
-    public boolean isCompleted() {
-        return completed;
-    }
-
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
-    }
-
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
